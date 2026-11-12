@@ -19,8 +19,12 @@ with the phone using the React PWA in its browser. Frontend, API, and database r
 in Docker on the PC. The first delivery requires a reachable API to save; there
 is no offline write queue or synchronization. Show server unavailability clearly
 and never confirm an unsaved change. PC, Docker, and ZeroTier must be available.
-Use a stable HTTPS origin trusted by the phone; certificate and authentication
-details remain to be selected. The original Flutter offline rules below describe
+Approved first delivery: HTTP via the private ZeroTier IP, no login or friendly
+DNS, no service worker. Validate Safari home screen behavior on the actual phone.
+HTTPS is deferred. Store historical period prices; accept full payments only,
+with simple reversal and no reversal history. Cards have closing and due dates;
+edit one installment or all unpaid installments, preserving paid ones.
+The original Flutter offline rules below describe
 the reference app and do not imply offline writes in the new PWA.
 
 - Flutter reference app: `/mnt/c/projetos/ponto-eletronico`

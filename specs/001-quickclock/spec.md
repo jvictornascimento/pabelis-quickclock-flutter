@@ -29,17 +29,19 @@ no PC e no celular fornece a rede privada tambem fora de casa. A rede ZeroTier
 deve autorizar ambos os dispositivos; o acesso depende de conectividade entre
 eles. ZeroTier fornece conectividade, nao substitui HTTPS nem autenticacao.
 
-Servir frontend e API pela mesma origem HTTPS, usando endereco estavel acessivel
-pela rede ZeroTier e certificado confiavel no celular. Escolher o mecanismo de
-certificado e nome antes da infraestrutura. Nao publicar portas do banco nem
+Servir frontend e API pela mesma origem HTTP no IP privado do PC via ZeroTier.
+Primeira entrega sem login, DNS amigavel ou certificado. Validar abertura pelo
+Safari e adicao a tela inicial no aparelho real, sem prometer suporte antes
+desse teste. Nao usar service worker: HTTPS confiavel fica para evolucao futura
+se esses recursos forem necessarios. Nao publicar portas do banco nem
 expor a API diretamente na internet; restringir o ingresso ao proxy e a rede
 autorizada. Manter Spring Boot e PostgreSQL, sem reescrita do backend.
 
 Na primeira entrega, salvar exige conexao com a API. Nao ha fila de escrita nem
 sincronizacao offline. Se PC, Docker, ZeroTier ou API estiverem indisponiveis,
 mostrar "Servidor indisponivel" e permitir tentar novamente; nunca confirmar
-salvamento sem resposta de sucesso. Cache de arquivos da PWA pode abrir a
-interface, mas nao garante dados atuais nem permite salvar. Dados eventualmente
+salvamento sem resposta de sucesso. Nao garantir abertura offline da interface.
+Dados eventualmente
 em cache devem ser identificados como desatualizados. Escrita offline fica para
 uma evolucao futura, com regras proprias de conflitos e datas.
 
@@ -110,14 +112,18 @@ Manifesto, icones, instalacao e atualizacao segura do cache. Backup e restauraca
 do banco com validacao e aviso antes de substituir dados. Nunca armazenar segredos
 no frontend nem versionar backups pessoais.
 
-## Decisoes pendentes antes das tasks dependentes
+## Decisoes aprovadas pelo fundador
 
-1. Seguranca: definir autenticacao e sessao para o uso pessoal na rede privada.
-2. HTTPS: escolher nome estavel e certificado confiavel acessivel pelo ZeroTier.
-3. Valor historico: congelar preco por periodo trabalhado e impedir que reajuste
-   altere fechamentos antigos? Recomendado, depende de aprovacao e migration.
-4. Pagamentos parciais, estornos, fechamento de cartao, vencimento e alteracao
-   de parcelas ja pagas precisam de definicao antes do modulo financeiro.
+1. Acesso pessoal por HTTP/IP via ZeroTier, sem login e sem DNS amigavel.
+2. Cada periodo guarda seu valor historico; reajustes afetam novos lancamentos,
+   preservando precos de periodos ja registrados. T12 define migration dos legados.
+3. Somente recebimento integral. Estorno desfaz a entrada e retorna a origem para
+   pendente; nao manter historico de estornos nem implementar pagamento parcial.
+4. Cartao tem nome, fechamento e vencimento. Parcelas entram no mes da fatura;
+   pagamento da fatura nao cria despesa duplicada.
+5. Ao editar, oferecer somente esta parcela ou aplicar as parcelas em aberto.
+   Preservar parcelas pagas. Recalcular previsao e validar valores apos alteracao.
+6. Usar America/Sao_Paulo para o dia de trabalho e testes de meia-noite.
 
 ## Arquitetura e qualidade
 
@@ -142,7 +148,7 @@ O fluxo de entrega e as autorizacoes estao em `git-workflow.md`, parte desta spe
 - Conferencia visual mobile/desktop e testes de navegacao executados.
 - Backup restaurado em banco isolado e conferido antes de entrega.
 - Limites offline e de acesso documentados e verificados conforme decisao.
-- PWA acessivel no celular via ZeroTier fora da rede domestica, com HTTPS
-  confiavel; verificar indisponibilidade do PC/API e recuperacao da conexao.
+- Interface acessivel no Safari via HTTP/IP ZeroTier fora da rede domestica;
+  validar adicao a tela inicial, indisponibilidade do PC/API e recuperacao.
 - Sem conexao, escritas sao bloqueadas ou falham claramente sem confirmar sucesso.
 - Entrega local nao implica autorizacao para publicar em producao.

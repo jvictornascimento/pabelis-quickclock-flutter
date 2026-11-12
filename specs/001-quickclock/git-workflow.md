@@ -90,7 +90,9 @@ Aplicar somente ao escopo de rotina abaixo; as excecoes continuam exigindo aval.
 ## Acoes que continuam exigindo aprovacao especifica
 
 - Mudanca de regra de negocio, escopo significativo ou arquitetura aprovada.
-- Decisoes pendentes: autenticacao, HTTPS, preco historico e regras financeiras.
+- Novas decisoes ou alteracoes das regras aprovadas. Login e HTTPS foram
+  dispensados na primeira entrega por decisao posterior registrada em spec.md;
+  preco historico, pagamentos e parcelas tambem ja possuem regra aprovada.
 - Excluir/substituir dados pessoais, importar sobre banco existente, remover volumes
   Docker ou executar migrations destrutivas/alteracoes criticas de banco.
 - Force-push, reescrever historico compartilhado, remover repositorios ou mudar

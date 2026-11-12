@@ -39,7 +39,8 @@ respectivas. Interface traduz mensagens tecnicas para feedback em portugues.
 - API indisponivel mostra erro e permite nova tentativa; sem fila offline.
 - Fuso configurado deve ser unico para regra de hoje; datas civis nao passam por UTC.
 - Consultas com date e month simultaneos precisam de regra explicita em T11.
-- HTTPS mesma origem via proxy evita expor URL interna da API ao navegador.
+- HTTP mesma origem via proxy evita expor URL interna da API ao navegador;
+  conforme decisao posterior do fundador, HTTPS e service worker estao adiados.
 
 ## Testes de aceite planejados
 

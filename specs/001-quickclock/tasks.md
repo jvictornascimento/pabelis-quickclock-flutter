@@ -7,20 +7,25 @@ Uma branch por task ou conjunto coeso; commits Conventional Commits com escopo e
 ingles simples, incluindo motivo e verificacao no corpo quando relevante.
 
 ## Planejamento
-- [ ] T01 Revisar esta spec com o fundador e resolver decisoes pendentes.
+- [x] T01 Revisar esta spec com o fundador e resolver decisoes pendentes.
+  Decisoes aprovadas: HTTP/IP ZeroTier sem login, preco historico, recebimento
+  integral, estorno simples e edicao de parcelas em aberto.
 - [x] T02 Auditar backend #1-#5 e prototipo; mapear gaps por requisito.
   Evidencia: `audit.md` (inspecao estatica, sem nova execucao de testes).
 - [x] T03 Documentar contratos HTTP, erros, datas e dinheiro; definir testes.
   Evidencia: `contracts.md`; contratos novos sao propostas, nao endpoints entregues.
-- [ ] T04 Ajustar backlog existente: backend #6-#9 e frontend #1-#11; substituir
+- [x] T04 Ajustar backlog existente: backend #6-#9 e frontend #1-#11; substituir
   requisitos VPS/Cloudflare por execucao local aprovada, sem duplicar issues.
+  Evidencia: 15 issues atualizadas via `update-backlog.ps1`, com milestone e tasks.
 
 ## Base e infraestrutura local
-- [ ] T05 Preparar frontend definitivo React/TypeScript no repositorio front,
+- [x] T05 Preparar frontend definitivo React/TypeScript no repositorio front,
   aproveitando o prototipo e removendo dados demonstrativos do fluxo real.
+  Branch `feat/001-t05-react-foundation`: base tipada, API, empresas/settings,
+  testes e build. T09 segue aberta ate verificacao do backend e aceite completo.
 - [ ] T06 Criar Compose com API, PostgreSQL e frontend/proxy, volumes e healthchecks.
-- [ ] T07 Configurar acesso privado por ZeroTier, endereco estavel, HTTPS confiavel
-  no celular e autenticacao definida em T01; restringir portas ao proxy/rede privada.
+- [ ] T07 Configurar acesso HTTP/IP privado por ZeroTier sem login/DNS;
+  restringir portas ao proxy/rede privada e validar no Safari do celular.
 - [ ] T08 Validar build e inicializacao dos containers; documentar comandos e URL.
 
 ## Empresas e trabalho
@@ -50,7 +55,8 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
 - [ ] T24 Testar filtros, saldo, parcelas futuras e ausencia de dupla despesa.
 
 ## PWA e persistencia
-- [ ] T25 Configurar manifesto, icones e cache de arquivos; testar instalacao iOS.
+- [ ] T25 Configurar manifesto e icones; testar adicao a tela inicial no Safari
+  por HTTP/IP, sem service worker nem promessa de funcionamento offline.
 - [ ] T26 Exigir API disponivel para salvar; mostrar servidor indisponivel e
   permitir nova tentativa. Identificar cache desatualizado, sem fila de escrita.
   Testar perda de conexao, ausencia de falso sucesso e recuperacao via ZeroTier.
@@ -64,11 +70,11 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
   relatorio -> recebimento -> financeiro; incluir negativas e falhas de rede.
 - [ ] T31 Conferir capturas em 320px, 390px e desktop, acessibilidade e PDF.
 - [ ] T32 Conferir seguranca, atualizacao PWA, reinicio e restauracao de backup;
-  testar celular fora de casa via ZeroTier, HTTPS e PC/Docker/API desligados.
+  testar celular fora de casa via ZeroTier/HTTP e PC/Docker/API desligados.
 - [ ] T33 Atualizar READMEs e contexto dos tres projetos; registrar resultados,
   limitacoes e passos para uso local. Mergear somente branches verificadas.
 
-Dependencias: T01-T04 antes da implementacao significativa; T07 depende da escolha
-de HTTPS e autenticacao; T12/T18/T21 dependem das decisoes de produto. T13-T15 podem seguir
+Dependencias: T01-T04 antes da implementacao significativa; T07 segue acesso
+HTTP/IP aprovado; T12/T18/T21 seguem decisoes registradas. T13-T15 podem seguir
 independentemente apos contratos; relatorio depende dos tres tipos de trabalho.
 Financeiro depende de origens e pagamentos definidos. QA participa desde T03.
