@@ -23,10 +23,12 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
   aproveitando o prototipo e removendo dados demonstrativos do fluxo real.
   Branch `feat/001-t05-react-foundation`: base tipada, API, empresas/settings,
   testes e build. T09 segue aberta ate verificacao do backend e aceite completo.
-- [ ] T06 Criar Compose com API, PostgreSQL e frontend/proxy, volumes e healthchecks.
+- [x] T06 Criar Compose com API, PostgreSQL e frontend/proxy, volumes e healthchecks.
+  Evidencias: `delivery-t06.md`, builds e healthchecks em stack isolada.
 - [ ] T07 Configurar acesso HTTP/IP privado por ZeroTier sem login/DNS;
   restringir portas ao proxy/rede privada e validar no Safari do celular.
-- [ ] T08 Validar build e inicializacao dos containers; documentar comandos e URL.
+- [x] T08 Validar build e inicializacao dos containers; documentar comandos e URL.
+  Evidencias: `delivery-t06.md`, CRUD PostgreSQL, persistencia e recuperacao da API.
 
 ## Empresas e trabalho
 - [ ] T09 Cobrir RF01 com testes de dominio/API; integrar telas de empresas/settings.
