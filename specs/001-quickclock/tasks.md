@@ -13,7 +13,7 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
 - [x] T02 Auditar backend #1-#5 e prototipo; mapear gaps por requisito.
   Evidencia: `audit.md` (inspecao estatica, sem nova execucao de testes).
 - [x] T03 Documentar contratos HTTP, erros, datas e dinheiro; definir testes.
-  Evidencia: `contracts.md`; contratos novos sao propostas, nao endpoints entregues.
+  Evidencia: `contracts.md`; inventario atualizado com os endpoints entregues.
 - [x] T04 Ajustar backlog existente: backend #6-#9 e frontend #1-#11; substituir
   requisitos VPS/Cloudflare por execucao local aprovada, sem duplicar issues.
   Evidencia: 15 issues atualizadas via `update-backlog.ps1`, com milestone e tasks.
@@ -31,30 +31,33 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
   Evidencias: `delivery-t06.md`, CRUD PostgreSQL, persistencia e recuperacao da API.
 
 ## Empresas e trabalho
-- [ ] T09 Cobrir RF01 com testes de dominio/API; integrar telas de empresas/settings.
-- [ ] T10 Cobrir RF02 com testes de fuso, meia-noite, expediente, empresa desativada,
+- [x] T09 Cobrir RF01 com testes de dominio/API; integrar telas de empresas/settings.
+- [x] T10 Cobrir RF02 com testes de fuso, meia-noite, expediente, empresa desativada,
   repeticao de save e concorrencia; corrigir backend e integrar home.
-- [ ] T11 Implementar consulta por data/mes com isolamento e estados de erro/vazio.
-- [ ] T12 Implementar politica de preco historico aprovada e migrations, se aplicavel.
+- [x] T11 Implementar consulta por data/mes com isolamento e estados de erro/vazio.
+- [x] T12 Implementar politica de preco historico aprovada e migrations, se aplicavel.
 
 ## Servicos, orcamentos e relatorios
-- [ ] T13 Validar CRUD de servicos e filtros de mes; integrar frontend (RF04).
-- [ ] T14 Implementar orcamentos/historico/aprovacao e testes (backend #6, RF05).
-- [ ] T15 Integrar telas de orcamento, detalhes, historico e confirmacao de aprovacao.
-- [ ] T16 Implementar relatorio mensal consolidado (backend #7), testar totais,
+- [x] T13 Validar CRUD de servicos e filtros de mes; integrar frontend (RF04).
+- [x] T14 Implementar orcamentos/historico/aprovacao e testes (backend #6, RF05).
+- [x] T15 Integrar telas de orcamento, detalhes, historico e confirmacao de aprovacao.
+- [x] T16 Implementar relatorio mensal consolidado (backend #7), testar totais,
   fronteiras de mes e exclusao de dias vazios/rascunhos.
-- [ ] T17 Implementar tela e PDF com teste do exemplo de outubro/2026 (RF06).
+- [x] T17 Implementar tela e PDF com teste do exemplo de outubro/2026 (RF06).
 
 ## Financeiro
-- [ ] T18 Definir modelo aprovado de recebiveis/pagamentos e migrations (apos T01).
-- [ ] T19 Implementar marcar como pago com origem, data, idempotencia e estorno
+- [x] T18 Definir modelo aprovado de recebiveis/pagamentos e migrations (apos T01).
+- [x] T19 Implementar marcar como pago com origem, data, idempotencia e estorno
   aprovado; testar ausencia de dupla receita (backend #8, RF07).
-- [ ] T20 Implementar despesas, categorias e formas de pagamento com validacoes.
-- [ ] T21 Implementar cartoes e parcelas: rateio em centavos, datas de fim de mes,
+- [x] T20 Implementar despesas, categorias e formas de pagamento com validacoes.
+- [x] T21 Implementar cartoes e parcelas: rateio em centavos, datas de fim de mes,
   virada de ano, alteracao e pagamento conforme regras aprovadas (RF08).
-- [ ] T22 Integrar telas de recebimentos, gastos, cartoes e parcelas.
-- [ ] T23 Implementar agregacoes mensais realizadas/previstas e dashboard (RF09).
-- [ ] T24 Testar filtros, saldo, parcelas futuras e ausencia de dupla despesa.
+- [x] T22 Integrar telas de recebimentos, gastos, cartoes e parcelas.
+- [x] T23 Implementar agregacoes mensais realizadas/previstas e dashboard (RF09).
+- [x] T24 Testar filtros, saldo, parcelas futuras e ausencia de dupla despesa.
+
+Evidencias T09-T24: `delivery-workflows.md`, testes automatizados, PostgreSQL
+isolado, navegacao real e PDF de outubro; nao significam aceite Safari/ZeroTier.
 
 ## PWA e persistencia
 - [ ] T25 Configurar manifesto e icones; testar adicao a tela inicial no Safari
@@ -62,15 +65,19 @@ ingles simples, incluindo motivo e verificacao no corpo quando relevante.
 - [ ] T26 Exigir API disponivel para salvar; mostrar servidor indisponivel e
   permitir nova tentativa. Identificar cache desatualizado, sem fila de escrita.
   Testar perda de conexao, ausencia de falso sucesso e recuperacao via ZeroTier.
+  Parcial: testes de rede no Chromium passaram, incluindo resposta perdida apos
+  save e recuperacao por leitura. Falta verificar recuperacao via ZeroTier real.
 - [ ] T27 Implementar exportacao/restauracao validada, testar backup em banco isolado.
 - [ ] T28 Avaliar migracao do SQLite Flutter; mapear empresas, datas, valores e
   historico sem importar cargas de teste automaticamente.
 
 ## QA e entrega
-- [ ] T29 Executar testes unitarios, HTTP e integracao com PostgreSQL real.
-- [ ] T30 Executar testes ponta a ponta: empresa -> ponto -> servico/orcamento ->
+- [x] T29 Executar testes unitarios, HTTP e integracao com PostgreSQL real.
+- [x] T30 Executar testes ponta a ponta: empresa -> ponto -> servico/orcamento ->
   relatorio -> recebimento -> financeiro; incluir negativas e falhas de rede.
 - [ ] T31 Conferir capturas em 320px, 390px e desktop, acessibilidade e PDF.
+  Parcial: capturas/overflow e PDF verificados no Chromium; auditoria completa
+  de acessibilidade e Safari ainda pendentes.
 - [ ] T32 Conferir seguranca, atualizacao PWA, reinicio e restauracao de backup;
   testar celular fora de casa via ZeroTier/HTTP e PC/Docker/API desligados.
 - [ ] T33 Atualizar READMEs e contexto dos tres projetos; registrar resultados,
