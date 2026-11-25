@@ -1,6 +1,6 @@
 # QuickClock pessoal: trabalhos e financeiro
 
-Status: proposta para revisao do fundador. Esta unica spec cobre o produto;
+Status: aprovada para implementacao; entrega parcial verificada. Esta unica spec cobre o produto;
 as tasks permitem entregar por etapas. Nao exige instalacao do Spec Kit.
 
 ## Objetivo e contexto

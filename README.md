@@ -45,7 +45,22 @@ aprovados e valores a receber no fechamento do mes.
 - Relatorio mensal por empresa.
 - Exportacao, importacao e compartilhamento de PDF.
 
-## Estrutura
+## Evolucao Web
+
+Frontend e backend ja integram ponto, servicos, orcamentos com historico,
+relatorios/PDF, recebimentos/estornos, despesas, cartoes, parcelas e financeiro
+mensal. Os dados sao persistidos no PostgreSQL via API; nao sao mocks.
+O trabalho de hoje continua sendo a tela inicial, com financeiro pelo menu.
+
+O Compose fica no repositorio frontend e roda no PC. Acesso pessoal planejado
+por HTTP/IP privado ZeroTier, sem login ou escrita offline. Safari/ZeroTier real,
+backup/restauracao e importacao do SQLite ainda precisam ser concluidos.
+O app Flutter e seus dados locais foram preservados.
+
+Consulte [a entrega e verificacoes](specs/001-quickclock/delivery-workflows.md)
+e [as tarefas pendentes](specs/001-quickclock/tasks.md).
+
+## Estrutura Flutter
 
 ```text
 lib/         Codigo Dart do app
